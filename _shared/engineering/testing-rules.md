@@ -29,6 +29,18 @@ Do not use test count as a measure of confidence.
 
 Avoid duplicate proof. Reuse shared test infrastructure when it has one canonical owner, while keeping scenario-specific data local to the test.
 
+## Environment progression
+
+Use this default evidence path unless an approved Technical Specification defines a stricter one:
+
+1. Test the exact candidate locally with the narrowest meaningful proof, then the wider required checks.
+2. Deploy that candidate to the configured non-production environment named in the Technical Specification and validate the applicable integration and user flows there.
+3. If the evidence requires a code or specification change, return to the appropriate workflow stage, create a new candidate, and repeat the necessary local and non-production proof.
+4. Treat non-production success as readiness evidence, not production authorization.
+5. Release to production only after Assess Readiness approves the exact candidate and the human explicitly authorizes the external change; then verify the production result and remaining monitoring or rollback obligations.
+
+Name the actual environments in each Project's Technical Specification. Do not assume that labels such as dev, preview, or staging refer to equivalent infrastructure or proof.
+
 ## Test data and environment evidence
 
 - Identify the environment, data source and type, and dataset version or baseline used for material proof.

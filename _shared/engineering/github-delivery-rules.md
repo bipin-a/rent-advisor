@@ -8,9 +8,10 @@ Git is initialized on `main` with `origin` set to the public repository [`bipin-
 
 Repository-specific delivery policy is not fully configured. Do not treat a deferred choice below as approved.
 
-- Choose the commit convention, merge method, and merge approval rule after GitHub ownership and collaboration expectations are known and before the first Project pull request is marked ready.
+- Every change to `main` must arrive through a pull request. GitHub branch protection applies this rule to repository administrators.
+- Choose the commit convention before the first Project commit.
 - Use the existing `.github/pull_request_template.md` for the first and subsequent pull requests.
-- Derive required check names from the approved Technical Specification, executable test commands, and CI configuration. Record them here before the first merge.
+- Derive required check names from the approved Technical Specification, executable test commands, and CI configuration. Record them here before the first Project pull request is merged.
 - Use the Release workflow's explicit human authorization gate until a named production-release owner is recorded here.
 
 ## Sources of truth
@@ -21,6 +22,12 @@ Repository-specific delivery policy is not fully configured. Do not treat a defe
 - The deployment platform owns live release status.
 
 Re-check live state before merging or releasing.
+
+## Public repository hygiene
+
+- Never commit credentials, secrets, private keys, or populated environment files. Store secret values in an appropriate local, GitHub, deployment, or service secret store; record only safe setup requirements and variable names.
+- Do not commit unapproved personal or production data. Use synthetic, anonymized, or otherwise approved data according to [`testing-rules.md`](testing-rules.md).
+- Review the staged diff for sensitive content before every push.
 
 ## Delivery profile
 
@@ -47,18 +54,20 @@ The human approves the profile and proposed delivery shape before implementation
 - Preserve unrelated work.
 - Link material code changes to the relevant Project or specification.
 
-Commit naming convention: Deferred until Git is initialized; choose before the first Project commit.
+Commit naming convention: Deferred; choose before the first Project commit.
 
 ## Pull requests
 
-Fill out `.github/pull_request_template.md` after it is created during GitHub configuration.
+Fill out `.github/pull_request_template.md` for every pull request.
 Write the description according to [`../voice.md`](../voice.md).
+
+Main branch policy: Every change to `main` requires a pull request; direct pushes are prohibited, including for repository administrators.
 
 Branch naming convention: project name, issue number, summary
 
-Merge method: Deferred until GitHub ownership and collaboration expectations are known; choose before the first Project pull request is marked ready.
+Merge method: Squash. GitHub permits squash merges only. Use the final pull request title as the commit subject and the pull request body as the commit body on `main`.
 
-Required checks: Deferred until the technical stack, executable test commands, and CI check names exist; record them before the first merge.
+Required checks: Deferred until the technical stack, executable test commands, and CI check names exist; record them before the first Project pull request is merged.
 
 ## Traceability
 
@@ -68,6 +77,6 @@ Required checks: Deferred until the technical stack, executable test commands, a
 
 ## Human gates
 
-Required approval before merge: Deferred until GitHub ownership and collaboration expectations are known; choose before the first Project pull request is marked ready.
+Required approval before merge: Zero approving reviews while the repository has one maintainer. Pull requests remain mandatory as a self-review and delivery-hygiene gate. Revisit this rule when another maintainer receives merge access.
 
 Required approval before production release: Explicit human authorization for the exact candidate, as required by [`06_release`](../../workflows/06_release/CONTEXT.md). Record a named owner here when production ownership is known.
