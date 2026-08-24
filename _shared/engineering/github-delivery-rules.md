@@ -9,9 +9,9 @@ Git is initialized on `main` with `origin` set to the public repository [`bipin-
 Repository-specific delivery policy is not fully configured. Do not treat a deferred choice below as approved.
 
 - Every change to `main` must arrive through a pull request. GitHub branch protection applies this rule to repository administrators.
-- Choose the commit convention and merge method before the first Project pull request is marked ready.
+- Choose the commit convention before the first Project commit.
 - Use the existing `.github/pull_request_template.md` for the first and subsequent pull requests.
-- Derive required check names from the approved Technical Specification, executable test commands, and CI configuration. Record them here before the first merge.
+- Derive required check names from the approved Technical Specification, executable test commands, and CI configuration. Record them here before the first Project pull request is merged.
 - Use the Release workflow's explicit human authorization gate until a named production-release owner is recorded here.
 
 ## Sources of truth
@@ -65,9 +65,9 @@ Main branch policy: Every change to `main` requires a pull request; direct pushe
 
 Branch naming convention: project name, issue number, summary
 
-Merge method: Deferred; choose before the first Project pull request is marked ready.
+Merge method: Squash. GitHub permits squash merges only. Use the final pull request title as the commit subject and the pull request body as the commit body on `main`.
 
-Required checks: Deferred until the technical stack, executable test commands, and CI check names exist; record them before the first merge.
+Required checks: Deferred until the technical stack, executable test commands, and CI check names exist; record them before the first Project pull request is merged.
 
 ## Traceability
 
