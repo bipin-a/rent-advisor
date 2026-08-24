@@ -12,6 +12,11 @@ One shared workflow updates Project records stored under `projects/`.
 | `06_release` | Release an approved build | Release summary | Confirm the released result |
 | `07_learn` | Capture and apply lessons | Lessons file and source updates | Confirm each lesson's owner |
 
+## Factory references
+
+- A finished workflow run: [`_shared/definition-of-done.md`](_shared/definition-of-done.md)
+- Approved reusable inputs: [`_shared/reusable-assets.md`](_shared/reusable-assets.md)
+
 ## Routing
 
 - Discussion, diagnosis, or research with no durable consequence → remain in conversation; when it changes durable work, reconcile the evidence into its canonical Project, roadmap, workflow, or shared source

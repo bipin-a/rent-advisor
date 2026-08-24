@@ -23,6 +23,12 @@ Repository-specific delivery policy is not fully configured. Do not treat a defe
 
 Re-check live state before merging or releasing.
 
+## Public repository hygiene
+
+- Never commit credentials, secrets, private keys, or populated environment files. Store secret values in an appropriate local, GitHub, deployment, or service secret store; record only safe setup requirements and variable names.
+- Do not commit unapproved personal or production data. Use synthetic, anonymized, or otherwise approved data according to [`testing-rules.md`](testing-rules.md).
+- Review the staged diff for sensitive content before every push.
+
 ## Delivery profile
 
 Every Project selects one profile through its approved Delivery Assessment before Build:
